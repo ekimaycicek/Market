@@ -22,14 +22,14 @@ public class Market {
      * 			 ortalama kazançtan aşağıysa o günleri return yap.
      * */
 
-    static ArrayList<String> days =new ArrayList<>(Arrays.asList("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"));
+    static ArrayList<String> days = new ArrayList<>(Arrays.asList("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"));
     static ArrayList<Double> dailyEarnings=new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
     static double weeklyTurnover=0;
     public static void main(String[] args) {
-        int gun=0;
-        while (gun<7){
-            System.out.println("Lutfen "+ days.get(gun) + " gunun hasilatini girin: ");
+        int day=0;
+        while (day<7){
+            System.out.println("Lutfen "+ days.get(day) + " gunun hasilatini girin: ");
 
             double earningsOfTheDay=sc.nextDouble();
 
@@ -37,33 +37,33 @@ public class Market {
 
             weeklyTurnover+= earningsOfTheDay;
 
-            gun++;
+            day++;
 
         }
-        getOrtalamaninUstundeKazancGünleri();
-        getOrtalamaninAltindaKazancGünleri();
+        getAboveAverageEarningsDays();
+        getBelowAverageEarningDays();
         getOrtalamaKazanc();
-        System.out.println("haftanın cirosu :" + weeklyTurnover);
-        System.out.println("haftanın ortalaması : " + getOrtalamaKazanc());
-        System.out.println("ortalam ustu kazanc olan günler : "+getOrtalamaninUstundeKazancGünleri());
-        System.out.println("ortalam altı kazanc olan günler : "+getOrtalamaninAltindaKazancGünleri());
+        System.out.println("haftanin cirosu :" + weeklyTurnover);
+        System.out.println("haftanin ortalamasi : " + getOrtalamaKazanc());
+        System.out.println("ortalama ustu kazanc olan günler : "+getAboveAverageEarningsDays());
+        System.out.println("ortalama alti kazanc olan günler : "+getBelowAverageEarningDays());
     }
 
-    private static String getOrtalamaninAltindaKazancGünleri() {//6. adim
-        String ortalamaAltıGun = "";
+    private static String getBelowAverageEarningDays() {
+        String AverageSixDays = "";
 
         for (int i = 0; i < dailyEarnings.size(); i++) {// gunluk hasilat döngüsü
             if (dailyEarnings.get(i) < getOrtalamaKazanc()) { //gunluk hasilat haftanin ortalamasi ile kontrol
-                ortalamaAltıGun += days.get(i);//ortlamanin altindaki hasilat olan gun ortalama alti gune eklendi
+                AverageSixDays += days.get(i);//ortlamanin altindaki hasilat olan gun ortalama alti gune eklendi
             }
         }
 
-        return ortalamaAltıGun;
+        return AverageSixDays;
 
 
     }
 
-    private static String getOrtalamaninUstundeKazancGünleri() {//5. adim
+    private static String getAboveAverageEarningsDays() {
         String ortalaUstuGun = "";
 
         for (int i = 0; i < dailyEarnings.size(); i++) {// gunluk hasilat döngüsü
@@ -75,7 +75,7 @@ public class Market {
         return ortalaUstuGun;
     }
 
-    private static double getOrtalamaKazanc() {//4. adim
+    private static double getOrtalamaKazanc() {
 
         double average = weeklyTurnover / 7;
 
