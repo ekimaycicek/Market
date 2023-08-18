@@ -31,11 +31,11 @@ public class Market {
         while (gun<7){
             System.out.println("Lutfen "+ days.get(gun) + " gunun hasilatini girin: ");
 
-            double gunKazancı=sc.nextDouble();
+            double earningsOfTheDay=sc.nextDouble();
 
-            dailyEarnings.add(gunKazancı);
+            dailyEarnings.add(earningsOfTheDay);
 
-            weeklyTurnover+= gunKazancı;
+            weeklyTurnover+= earningsOfTheDay;
 
             gun++;
 
@@ -66,8 +66,8 @@ public class Market {
     private static String getOrtalamaninUstundeKazancGünleri() {//5. adim
         String ortalaUstuGun = "";
 
-        for (int i = 0; i < dailyearnings.size(); i++) {// gunluk hasilat döngüsü
-            if (dailyearnings.get(i) > getOrtalamaKazanc()) { //gunluk hasilat haftanin ortalamasi ile kontrol
+        for (int i = 0; i < dailyEarnings.size(); i++) {// gunluk hasilat döngüsü
+            if (dailyEarnings.get(i) > getOrtalamaKazanc()) { //gunluk hasilat haftanin ortalamasi ile kontrol
                 ortalaUstuGun += days.get(i);//ortalamanin ustunde hasilat olan gun ortalama ustu gune eklendi
             }
         }
@@ -77,9 +77,9 @@ public class Market {
 
     private static double getOrtalamaKazanc() {//4. adim
 
-        double ortalama = haftaCirosu / 7;
+        double average = weeklyTurnover / 7;
 
-        return ortalama;
+        return average;
 
     }
 }
