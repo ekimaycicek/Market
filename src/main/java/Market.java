@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class BakkalAmca {
+public class Market {
 
     /* TASK :
      * Bir bakkalın 7 günlük tüm kazançlarını günlük olarak gösteren bir program yazınız.
@@ -22,20 +22,20 @@ public class BakkalAmca {
      * 			 ortalama kazançtan aşağıysa o günleri return yap.
      * */
 
-    static ArrayList<String> gunler=new ArrayList<>(Arrays.asList("pazartesi","salı","carsamba","persembe","cuma","cumartesi","pazar"));
-    static ArrayList<Double> gunlukKazanclar=new ArrayList<>();
-    static Scanner sc=new Scanner(System.in);
-    static double haftaCirosu=0;
+    static ArrayList<String> days =new ArrayList<>(Arrays.asList("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"));
+    static ArrayList<Double> dailyEarnings=new ArrayList<>();
+    static Scanner sc = new Scanner(System.in);
+    static double weeklyTurnover=0;
     public static void main(String[] args) {
         int gun=0;
         while (gun<7){
-            System.out.println("agam hele "+ gunler.get(gun) + " gunun hasılatını gir: ");
+            System.out.println("Lutfen "+ days.get(gun) + " gunun hasilatini girin: ");
 
             double gunKazancı=sc.nextDouble();
 
-            gunlukKazanclar.add(gunKazancı);
+            dailyEarnings.add(gunKazancı);
 
-            haftaCirosu+= gunKazancı;
+            weeklyTurnover+= gunKazancı;
 
             gun++;
 
@@ -43,18 +43,18 @@ public class BakkalAmca {
         getOrtalamaninUstundeKazancGünleri();
         getOrtalamaninAltindaKazancGünleri();
         getOrtalamaKazanc();
-        System.out.println("haftanın cirosu :" + haftaCirosu);
+        System.out.println("haftanın cirosu :" + weeklyTurnover);
         System.out.println("haftanın ortalaması : " + getOrtalamaKazanc());
         System.out.println("ortalam ustu kazanc olan günler : "+getOrtalamaninUstundeKazancGünleri());
         System.out.println("ortalam altı kazanc olan günler : "+getOrtalamaninAltindaKazancGünleri());
-    }//methon sonu
+    }
 
     private static String getOrtalamaninAltindaKazancGünleri() {//6. adim
         String ortalamaAltıGun = "";
 
-        for (int i = 0; i < gunlukKazanclar.size(); i++) {// gunluk hasilat döngüsü
-            if (gunlukKazanclar.get(i) < getOrtalamaKazanc()) { //gunluk hasilat haftanin ortalamasi ile kontrol
-                ortalamaAltıGun += gunler.get(i);//ortlamanin altindaki hasilat olan gun ortalama alti gune eklendi
+        for (int i = 0; i < dailyEarnings.size(); i++) {// gunluk hasilat döngüsü
+            if (dailyEarnings.get(i) < getOrtalamaKazanc()) { //gunluk hasilat haftanin ortalamasi ile kontrol
+                ortalamaAltıGun += days.get(i);//ortlamanin altindaki hasilat olan gun ortalama alti gune eklendi
             }
         }
 
@@ -66,9 +66,9 @@ public class BakkalAmca {
     private static String getOrtalamaninUstundeKazancGünleri() {//5. adim
         String ortalaUstuGun = "";
 
-        for (int i = 0; i < gunlukKazanclar.size(); i++) {// gunluk hasilat döngüsü
-            if (gunlukKazanclar.get(i) > getOrtalamaKazanc()) { //gunluk hasilat haftanin ortalamasi ile kontrol
-                ortalaUstuGun += gunler.get(i);//ortalamanin ustunde hasilat olan gun ortalama ustu gune eklendi
+        for (int i = 0; i < dailyearnings.size(); i++) {// gunluk hasilat döngüsü
+            if (dailyearnings.get(i) > getOrtalamaKazanc()) { //gunluk hasilat haftanin ortalamasi ile kontrol
+                ortalaUstuGun += days.get(i);//ortalamanin ustunde hasilat olan gun ortalama ustu gune eklendi
             }
         }
 
