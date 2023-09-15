@@ -27,6 +27,7 @@ public class Market {
     static ArrayList<Double> dailyEarnings=new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
     static double weeklyTurnover=0;
+
     public static void main(String[] args) {
         int day=0;
         while (day<7){
