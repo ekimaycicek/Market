@@ -43,6 +43,7 @@ public class Market {
             day++;
 
         }
+
         getAboveAverageEarningsDays();
         getBelowAverageEarningDays();
         getAverageEarnings();
