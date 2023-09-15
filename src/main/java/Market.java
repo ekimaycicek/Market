@@ -22,6 +22,7 @@ public class Market {
      * 			 ortalama kazançtan aşağıysa o günleri return yap.
      * */
 
+
     static ArrayList<String> days = new ArrayList<>(Arrays.asList("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"));
     static ArrayList<Double> dailyEarnings=new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
