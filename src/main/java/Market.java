@@ -31,6 +31,7 @@ public class Market {
     public static void main(String[] args) {
 
         int day=0;
+
         while (day<7){
             System.out.println("please "+ days.get(day) + " enter the revenue of the day: ");
 
