@@ -54,7 +54,6 @@ public class Market {
     }
 
     private static String getBelowAverageEarningDays() {
-
         String AverageSixDays = "";
 
         for (int i = 0; i < dailyEarnings.size(); i++) {// gunluk hasilat döngüsü
