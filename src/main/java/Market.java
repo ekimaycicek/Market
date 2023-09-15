@@ -81,7 +81,6 @@ public class Market {
 
     private static double getAverageEarnings() {
         double average = weeklyTurnover / 7;
-
         return average;
 
     }
